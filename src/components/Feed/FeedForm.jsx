@@ -1,8 +1,11 @@
 import FeedInput from './FeedInput';
 import useForm from '../../hooks/useForm';
 import FeedComment from './FeedComment';
+import { useRef } from 'react';
 
 const FeedForm = ({ id }) => {
+  const inputRef = useRef(null);
+
   const {
     emailValue,
     commentValue,
@@ -16,12 +19,14 @@ const FeedForm = ({ id }) => {
   function handleSubmit(event) {
     event.preventDefault();
     sendComment(id);
+    inputRef.current.focus();
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <FeedInput
+          ref={inputRef}
           type="email"
           id="email"
           value={emailValue}

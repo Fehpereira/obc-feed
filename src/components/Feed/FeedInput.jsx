@@ -1,10 +1,11 @@
-import React from 'react';
+import { useRef } from 'react';
 
-const FeedInput = ({ id, type, value, onChange, ...props }) => {
+const FeedInput = ({ id, type, value, onChange, ref, ...props }) => {
   return (
     <>
       <label htmlFor={id}>Email</label>
       <input
+        ref={ref}
         type={type}
         name={id}
         id={id}

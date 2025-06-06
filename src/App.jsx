@@ -1,14 +1,14 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Feed from './components/Feed/Feed';
 
 const App = () => {
-  const [feedList, setFeedList] = React.useState(() => {
+  const [feedList, setFeedList] = useState(() => {
     const feedStored = window.localStorage.getItem('feeds');
     if (!feedStored) return [];
     return JSON.parse(feedStored);
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.localStorage.setItem('feeds', JSON.stringify(feedList));
   }, [feedList]);
 

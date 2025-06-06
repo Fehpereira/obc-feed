@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 const FeedInput = ({ id, type, value, onChange, ref, ...props }) => {
   return (
     <>
